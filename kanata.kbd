@@ -1,0 +1,35 @@
+(defcfg
+    process-unmapped-keys yes
+)
+
+(defvar
+  tap-time 150
+  hold-time 200
+)
+
+(defalias
+  escctrl (multi f24 (tap-hold $tap-time $hold-time esc lctl))
+  spcshift (multi f24 (tap-hold $tap-time $hold-time spc lsft)) 
+  s-mod (multi f24 (tap-hold $tap-time $hold-time s lmet))
+  e-mod (multi f24 (tap-hold $tap-time $hold-time e lalt))
+  r-mod (multi f24 (tap-hold $tap-time $hold-time r lctl))
+  h-mod (multi f24 (tap-hold $tap-time $hold-time h rctl))
+  j-mod (multi f24 (tap-hold $tap-time $hold-time j lalt))
+  l-mod (multi f24 (tap-hold $tap-time $hold-time l rmet))
+)
+
+(defsrc
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt           spc            ralt
+)
+
+(deflayer asert
+  grv  =    1    2    3    4    5    -    6    7    8    9    0    bspc
+  tab  [    q    w    d    f    g    ]    i    k    o    ;    '    \
+  @escctrl  /    a  @s-mod  @e-mod  @r-mod  t    u    @h-mod  @j-mod  @l-mod  p  ret
+  lsft z    x    c    v    b    ,    y    n    m    .    rsft
+  lctl lmet lalt           @spcshift            ralt
+)
