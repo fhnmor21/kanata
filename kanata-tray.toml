@@ -1,0 +1,17 @@
+'$schema' = 'https://raw.githubusercontent.com/rszyma/kanata-tray/main/doc/config_schema.json'
+
+[general]
+allow_concurrent_presets = false
+
+
+[defaults]
+tcp_port = 5829 # if not specified, defaults to 5829
+
+[defaults.layer_icons]
+mouse = 'mouse.png'
+qwerty = 'qwerty.ico'
+'*' = 'other_layers.ico'
+
+[presets.'main cfg']
+kanata_config = '~/.config/kanata/kanata.kbd'
+autorun = true
