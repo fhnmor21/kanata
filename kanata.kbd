@@ -8,6 +8,8 @@
 )
 
 (defalias
+  to_extra (layer-switch asert_extra)
+  to_base (layer-switch asert_base)
   escctrl (multi f24 (tap-hold $tap-time $hold-time esc lctl))
   spcshift (multi f24 (tap-hold $tap-time $hold-time spc lsft)) 
   s-mod (multi f24 (tap-hold $tap-time $hold-time s lmet))
@@ -16,6 +18,8 @@
   h-mod (multi f24 (tap-hold $tap-time $hold-time h rctl))
   j-mod (multi f24 (tap-hold $tap-time $hold-time j lalt))
   l-mod (multi f24 (tap-hold $tap-time $hold-time l rmet))
+  lalt-extra (multi f24 (tap-hold $tap-time $hold-time @to_extra lalt))
+  lalt-base (multi f24 (tap-hold $tap-time $hold-time @to_base lalt))
 )
 
 (defsrc
@@ -26,10 +30,20 @@
   lctl lmet lalt           spc            ralt
 )
 
-(deflayer asert
-  grv  =    1    2    3    4    5    -    6    7    8    9    0    bspc
-  tab  [    q    w    d    f    g    ]    i    k    o    ;    '    \
+(deflayer asert_base
+  grv       =    1    2    3    4    5    -    6    7    8    9    0    bspc
+  tab       [    q    w    d    f    g    ]    i    k    o    ;    '    \
   @escctrl  /    a  @s-mod  @e-mod  @r-mod  t    u    @h-mod  @j-mod  @l-mod  p  ret
-  lsft z    x    c    v    b    ,    y    n    m    .    rsft
-  lctl lmet lalt           @spcshift            ralt
+  lsft      z    x    c    v    b    ,    y    n    m    .    rsft
+  lctl  lmet  @lalt-extra      @spcshift         ralt
 )
+
+(deflayer asert_extra
+  grv       1    2    3    4    5    6    7    8    9    0    _    =    bspc
+  tab       q    w    e    {    }    y    +    7    8    9    0    [    ]
+  @escctrl  a    s    d   S-9  S-0   h    \    4    5    6    '    ret
+  lsft      z   S-,   [    ]   S-.   -    1    2    3    .    rsft
+  lctl  lmet  @lalt-base       @spcshift       ralt
+)
+
+
