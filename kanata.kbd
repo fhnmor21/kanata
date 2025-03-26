@@ -12,14 +12,21 @@
   to_base (layer-switch asert_base)
   escctrl (multi f24 (tap-hold $tap-time $hold-time esc lctl))
   spcshift (multi f24 (tap-hold $tap-time $hold-time spc lsft)) 
-  s-mod (multi f24 (tap-hold $tap-time $hold-time s lmet))
-  e-mod (multi f24 (tap-hold $tap-time $hold-time e lalt))
-  r-mod (multi f24 (tap-hold $tap-time $hold-time r lctl))
-  h-mod (multi f24 (tap-hold $tap-time $hold-time h rctl))
-  j-mod (multi f24 (tap-hold $tap-time $hold-time j lalt))
-  l-mod (multi f24 (tap-hold $tap-time $hold-time l rmet))
+  s-met (multi f24 (tap-hold $tap-time $hold-time s lmet))
+  e-alt (multi f24 (tap-hold $tap-time $hold-time e lalt))
+  r-ctl (multi f24 (tap-hold $tap-time $hold-time r lctl))
+  h-ctl (multi f24 (tap-hold $tap-time $hold-time h rctl))
+  j-alt (multi f24 (tap-hold $tap-time $hold-time j lalt))
+  l-met (multi f24 (tap-hold $tap-time $hold-time l rmet))
+  4-ctl (multi f24 (tap-hold $tap-time $hold-time 4 rctl))
+  5-alt (multi f24 (tap-hold $tap-time $hold-time 5 lalt))
+  6-met (multi f24 (tap-hold $tap-time $hold-time 6 rmet))
   lalt-extra (multi f24 (tap-hold $tap-time $hold-time @to_extra lalt))
-  lalt-base (multi f24 (tap-hold $tap-time $hold-time @to_base lalt))
+;;  z-base (multi f24 (tap-hold $tap-time $hold-time @to_base lalt))
+  { S-[
+  } S-]
+  < S-,
+  > S-.
 )
 
 (defsrc
@@ -33,17 +40,17 @@
 (deflayer asert_base
   grv       =    1    2    3    4    5    -    6    7    8    9    0    bspc
   tab       [    q    w    d    f    g    ]    i    k    o    ;    '    \
-  @escctrl  /    a  @s-mod  @e-mod  @r-mod  t    u    @h-mod  @j-mod  @l-mod  p  ret
+  @escctrl  /    a  @s-met  @e-alt  @r-ctl  t    u    @h-ctl  @j-alt  @l-met  p  ret
   lsft      z    x    c    v    b    ,    y    n    m    .    rsft
   lctl  lmet  @lalt-extra      @spcshift         ralt
 )
 
 (deflayer asert_extra
-  grv       1    2    3    4    5    6    7    8    9    0    _    =    bspc
-  tab       q    w    e    {    }    y    +    7    8    9    0    [    ]
-  @escctrl  a    s    d   S-9  S-0   h    \    4    5    6    '    ret
-  lsft      z   S-,   [    ]   S-.   -    1    2    3    .    rsft
-  lctl  lmet  @lalt-base       @spcshift       ralt
+  grv       f1    f2     f3     f4    f5    f6   f7    f8     f9     f10     f11  f12   bspc
+  tab      home   up     end    @{    @}   pgup   +    7       8      9       0    \    S-\
+  esc      left  down   right  S-9   S-0   pgdn   /  @4-ctl  @5-alt  @6-met  S-8  ret
+  lsft  @to_base   @<     [     ]     @>    -     1    2       3       .     rsft
+  lctl    lmet    lalt          @spcshift             ralt
 )
 
 
