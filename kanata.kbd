@@ -3,8 +3,8 @@
 )
 
 (defvar
-  quick-tap-time 100
-  tap-time 150
+  quick-tap-time 50
+  tap-time 100
   hold-time 250
   long-hold-time 300
   timeout-time 750
@@ -14,22 +14,22 @@
   sym (layer-while-held asert_sym)
   to_extra (layer-switch asert_extra)
   to_base (layer-switch asert_base)
-  escctrl (multi f24 (tap-hold-press $tap-time $hold-time esc lctl))
-  spcshift (multi f24 (tap-hold-press-timeout $tap-time $timeout-time spc lsft spc))
-  t-sym (multi f24 (tap-hold-press $quick-tap-time $hold-time t @sym))
-  s-met (multi f24 (tap-hold-press $tap-time $long-hold-time s lmet))
-  e-alt (multi f24 (tap-hold-press $tap-time $hold-time e lalt))
-  r-ctl (multi f24 (tap-hold-press $quick-tap-time $hold-time r lctl))
-  h-ctl (multi f24 (tap-hold-press $quick-tap-time $hold-time h rctl))
-  j-alt (multi f24 (tap-hold-press $tap-time $hold-time j lalt))
-  l-met (multi f24 (tap-hold-press $tap-time $long-hold-time l rmet))
-  u-sym (multi f24 (tap-hold-press $quick-tap-time $hold-time u @sym))
-  left_m  (multi f24 (tap-hold-press $tap-time $hold-time left  lctl))
-  down_a  (multi f24 (tap-hold-press $tap-time $hold-time down  lalt))
-  right_c (multi f24 (tap-hold-press $tap-time $hold-time right lmet))
-  4-ctl (multi f24 (tap-hold-press $tap-time $hold-time 4 rctl))
-  5-alt (multi f24 (tap-hold-press $tap-time $hold-time 5 lalt))
-  6-met (multi f24 (tap-hold-press $tap-time $hold-time 6 rmet))
+  escctrl (multi f24 (tap-hold-release $tap-time $hold-time esc lctl))
+  spcshift (multi f24 (tap-hold-release-timeout $tap-time $timeout-time spc lsft spc))
+  t-sym (multi f24 (tap-hold-release $quick-tap-time $hold-time t @sym))
+  s-met (multi f24 (tap-hold-release $tap-time $long-hold-time s lmet))
+  e-alt (multi f24 (tap-hold-release $quick-tap-time $hold-time e lalt))
+  r-ctl (multi f24 (tap-hold-release $quick-tap-time $hold-time r lctl))
+  h-ctl (multi f24 (tap-hold-release $quick-tap-time $hold-time h rctl))
+  j-alt (multi f24 (tap-hold-release $quick-tap-time $hold-time j lalt))
+  l-met (multi f24 (tap-hold-release $tap-time $long-hold-time l rmet))
+  u-sym (multi f24 (tap-hold-release $quick-tap-time $hold-time u @sym))
+  left_m  (multi f24 (tap-hold-release $tap-time $hold-time left  lctl))
+  down_a  (multi f24 (tap-hold-release $tap-time $hold-time down  lalt))
+  right_c (multi f24 (tap-hold-release $tap-time $hold-time right lmet))
+  4-ctl (multi f24 (tap-hold-release $tap-time $hold-time 4 rctl))
+  5-alt (multi f24 (tap-hold-release $tap-time $hold-time 5 lalt))
+  6-met (multi f24 (tap-hold-release $tap-time $hold-time 6 rmet))
 )
 
 (defsrc
@@ -59,7 +59,7 @@
 (deflayer asert_sym
   grv      f1     f2      f3     f4     f5     f6    f7    f8    f9     f10    f11    f12     bspc
   tab      XX     tab    home    up     end   pgup    0     7     8      9      =     bspc    \
-  esc      del    ins    left   down   right  pgdn    /     4     5      6      -     ret
+  esc      del    ins    left   down   right  pgdn    /     4     5      6      -     bspc
   lsft     grv     ,      \       .      ;     [      1     2     3      ]    rsft
   lctl    lmet    lalt    @spcshift    ralt
 )
