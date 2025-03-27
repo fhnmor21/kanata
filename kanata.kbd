@@ -54,10 +54,10 @@
 )
 
 (deflayer asert_sym
-  grv      f1     f2      f3     f4     f5     f6    f7    f8      f9     f10    f11    f12     bspc
-  tab       _     tab    home    up     end   pgup   S-0   S-7    S-8     S-9     =     bspc    \
-  esc      del    ins    left   down   right  pgdn    /    S-4    S-5     S-6     -     ret
-  lsft     grv     ,      \       .      ;     [     S-1   S-2    S-3      ]     rsft
+  grv      f1     f2      f3     f4     f5     f6    f7    f8    f9     f10    f11    f12     bspc
+  tab       _     tab    home    up     end   pgup    0     7     8      9      =     bspc    \
+  esc      del    ins    left   down   right  pgdn    /     4     5      6      -     ret
+  lsft     grv     ,      \       .      ;     [      1     2     3      ]    rsft
   lctl    lmet    lalt    @spcshift    ralt
 )
 
