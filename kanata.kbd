@@ -15,7 +15,8 @@
   to_extra (layer-switch asert_extra)
   to_base (layer-switch asert_base)
   escctrl (multi f24 (tap-hold-release $tap-time $hold-time esc lctl))
-  spcshift (multi f24 (tap-hold-release-timeout $tap-time $timeout-time spc lsft spc))
+  spcshift (multi f24 (tap-hold-release $tap-time $hold-time lsft spc))
+  spcshift_r (multi f24 (tap-hold-release-timeout $tap-time $timeout-time spc lsft spc))
   t-sym (multi f24 (tap-hold-release $quick-tap-time $hold-time t @sym))
   s-met (multi f24 (tap-hold-release $tap-time $long-hold-time s lmet))
   e-alt (multi f24 (tap-hold-release $quick-tap-time $hold-time e lalt))
@@ -45,7 +46,7 @@
   tab      @to_extra    q       w       d       f      g       '      i       k       o      ;      bspc   \
   @escctrl    esc       a    @s-met  @e-alt  @r-ctl  @t-sym  @u-sym   @h-ctl  @j-alt  @l-met   p   ret
   lsft         z        x       c       v       b      ,       y      n       m       .     rsft
-  lctl    lmet    lalt    @spcshift    ralt
+  lctl    lmet    lalt    @spcshift_r    ralt
 )
 
 (deflayer asert_extra
@@ -58,10 +59,10 @@
 
 (deflayer asert_sym
   grv      f1     f2      f3     f4     f5     f6    f7    f8    f9     f10    f11    f12     bspc
-  tab      XX     tab    home    up     end   pgup    0     7     8      9      =     bspc    \
-  esc      del    ins    left   down   right  pgdn    /     4     5      6      -     bspc
+  tab      XX     ins    home    up     end   pgup    0     7     8      9      =     bspc    \
+  esc      del    tab    left   down   right  pgdn    /     4     5      6      -     bspc
   lsft     grv     ,      \       .      ;     [      1     2     3      ]    rsft
-  lctl    lmet    lalt    @spcshift    ralt
+  lctl    lmet    lalt    rsft    ralt
 )
 
 
