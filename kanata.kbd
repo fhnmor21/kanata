@@ -3,6 +3,7 @@
 )
 
 (defvar
+  quick-tap-time 100
   tap-time 150
   hold-time 250
   long-hold-time 300
@@ -15,14 +16,14 @@
   to_base (layer-switch asert_base)
   escctrl (multi f24 (tap-hold-press $tap-time $hold-time esc lctl))
   spcshift (multi f24 (tap-hold-press-timeout $tap-time $timeout-time spc lsft spc))
-  d-sym (multi f24 (tap-hold-press $tap-time $hold-time d @sym))
+  t-sym (multi f24 (tap-hold-press $quick-tap-time $hold-time t @sym))
   s-met (multi f24 (tap-hold-press $tap-time $long-hold-time s lmet))
   e-alt (multi f24 (tap-hold-press $tap-time $hold-time e lalt))
-  r-ctl (multi f24 (tap-hold-press $tap-time $hold-time r lctl))
-  h-ctl (multi f24 (tap-hold-press $tap-time $hold-time h rctl))
+  r-ctl (multi f24 (tap-hold-press $quick-tap-time $hold-time r lctl))
+  h-ctl (multi f24 (tap-hold-press $quick-tap-time $hold-time h rctl))
   j-alt (multi f24 (tap-hold-press $tap-time $hold-time j lalt))
   l-met (multi f24 (tap-hold-press $tap-time $long-hold-time l rmet))
-  k-sym (multi f24 (tap-hold-press $tap-time $hold-time k @sym))
+  u-sym (multi f24 (tap-hold-press $quick-tap-time $hold-time u @sym))
   left_m  (multi f24 (tap-hold-press $tap-time $hold-time left  lctl))
   down_a  (multi f24 (tap-hold-press $tap-time $hold-time down  lalt))
   right_c (multi f24 (tap-hold-press $tap-time $hold-time right lmet))
@@ -40,10 +41,10 @@
 )
 
 (deflayer asert_base
-  grv         =         1       2       3       4      5     -      6       7       8      9      0      bspc
-  tab      @to_extra    q       w    @d-sym    f      g     '      i     @k-sym     o      ;      bspc   \
-  @escctrl    esc       a    @s-met  @e-alt  @r-ctl   t     u    @h-ctl  @j-alt  @l-met    p   ret
-  lsft         z        x       c       v       b      ,     y      n       m       .     rsft
+  grv         =         1       2       3       4      5       -      6       7       8      9      0      bspc
+  tab      @to_extra    q       w       d       f      g       '      i       k       o      ;      bspc   \
+  @escctrl    esc       a    @s-met  @e-alt  @r-ctl  @t-sym  @u-sym   @h-ctl  @j-alt  @l-met   p   ret
+  lsft         z        x       c       v       b      ,       y      n       m       .     rsft
   lctl    lmet    lalt    @spcshift    ralt
 )
 
