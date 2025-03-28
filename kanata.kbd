@@ -11,7 +11,7 @@
 )
 
 (defalias
-  sym (layer-while-held asert_sym)
+  sym (layer-while-held asert_sym2)
   to_extra (layer-switch asert_extra)
   to_base (layer-switch asert_base)
   escctrl (multi f24 (tap-hold-release $tap-time $hold-time esc lctl))
@@ -59,9 +59,17 @@
 
 (deflayer asert_sym
   grv      f1     f2      f3     f4     f5     f6    f7    f8    f9     f10    f11    f12     bspc
-  tab      XX     ins    home    up     end   pgup    =     7     8      9      0     bspc    \
+  tab      XX     ins    home    up     end   pgup    =     7     8      9      0     XX      \
   esc      del    tab    left   down   right  pgdn    /     4     5      6      -     bspc
   lsft     grv     ,      \       .      ;     [      1     2     3      ]    rsft
+  lctl    lmet    lalt    rsft    ralt
+)
+
+(deflayer asert_sym2
+  grv      f1     f2      f3     f4     f5     f6    f7    f8     f9     f10    f11    f12     bspc
+  tab      XX      /      7      8      9      0    ins    home   up     end   pgup    XX      \
+  esc      del     =      4      5      6      -    tab    left  down   right  pgdn    bspc
+  lsft     [       1      2      3      ]     grv    ,      \     .       ;    rsft
   lctl    lmet    lalt    rsft    ralt
 )
 
