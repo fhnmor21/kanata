@@ -11,8 +11,8 @@
 )
 
 (defalias
-  sym (layer-while-held asert_sym2)
-  to_extra (layer-switch asert_extra)
+  sym (layer-while-held asert_sym1)
+  to_extra (layer-switch asert_extra1)
   to_base (layer-switch asert_base)
   escctrl (multi f24 (tap-hold-release $tap-time $hold-time esc lctl))
   spcshift (multi f24 (tap-hold-release $tap-time $hold-time lsft spc))
@@ -49,7 +49,15 @@
   lctl    lmet    lalt    @spcshift_r    ralt
 )
 
-(deflayer asert_extra
+(deflayer asert_extra1
+  grv      f1      f2      f3      f4       f5       f6     f7     f8       f9       f10     f11     f12    bspc
+  tab   @to_base   /       7       8        9        0     ins     home     up       end     pgup    bspc   \
+  esc      del     =    @4-ctl   @5-alt   @6-met     -     tab   @left_m  @down_a  @right_c  pgdn    ret
+  lsft     [       1       2       3        ]       grv     ,       \       .         ;      rsft
+  lctl    lmet    lalt    @spcshift    ralt
+)
+
+(deflayer asert_extra2
   grv      f1      f2      f3      f4       f5       f6     f7     f8      f9     f10     f11    f12    bspc
   tab   @to_base   tab    home     up       end     pgup    0       7       8      9       =     bspc   \
   esc      del     ins  @left_m  @down_a  @right_c  pgdn    /    @4-ctl  @5-alt  @6-met    -     ret
@@ -57,7 +65,15 @@
   lctl    lmet    lalt    @spcshift    ralt
 )
 
-(deflayer asert_sym
+(deflayer asert_sym1
+  grv      f1     f2      f3     f4     f5     f6    f7    f8     f9     f10    f11    f12     bspc
+  tab      XX      /      7      8      9      0    ins    home   up     end   pgup    XX      \
+  esc      del     =      4      5      6      -    tab    left  down   right  pgdn    bspc
+  lsft     [       1      2      3      ]     grv    ,      \     .       ;    rsft
+  lctl    lmet    lalt    rsft    ralt
+)
+
+(deflayer asert_sym2
   grv      f1     f2      f3     f4     f5     f6    f7    f8    f9     f10    f11    f12     bspc
   tab      XX     ins    home    up     end   pgup    =     7     8      9      0     XX      \
   esc      del    tab    left   down   right  pgdn    /     4     5      6      -     bspc
@@ -65,12 +81,5 @@
   lctl    lmet    lalt    rsft    ralt
 )
 
-(deflayer asert_sym2
-  grv      f1     f2      f3     f4     f5     f6    f7    f8     f9     f10    f11    f12     bspc
-  tab      XX      /      7      8      9      0    ins    home   up     end   pgup    XX      \
-  esc      del     =      4      5      6      -    tab    left  down   right  pgdn    bspc
-  lsft     [       1      2      3      ]     grv    ,      \     .       ;    rsft
-  lctl    lmet    lalt    rsft    ralt
-)
 
 
