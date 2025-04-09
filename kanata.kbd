@@ -11,6 +11,7 @@
 )
 
 (defalias
+  num (layer-while-held asert_num1)
   sym (layer-while-held asert_sym1)
   to_extra (layer-switch asert_extra1)
   to_base (layer-switch asert_base)
@@ -25,6 +26,7 @@
   j-alt (multi f24 (tap-hold-release $quick-tap-time $hold-time j lalt))
   l-met (multi f24 (tap-hold-release $tap-time $long-hold-time l rmet))
   u-sym (multi f24 (tap-hold-release $quick-tap-time $hold-time u @sym))
+  y-num (multi f24 (tap-hold-release $quick-tap-time $hold-time y @num))
   left_m  (multi f24 (tap-hold-release $tap-time $hold-time left  lctl))
   down_a  (multi f24 (tap-hold-release $tap-time $hold-time down  lalt))
   right_c (multi f24 (tap-hold-release $tap-time $hold-time right lmet))
@@ -45,7 +47,7 @@
   grv         =         1       2       3       4      5       -      6       7       8      9      0      bspc
   tab      @to_extra    q       w       d       f      g       '      i       k       o      ;      bspc   \
   @escctrl    esc       a    @s-met  @e-alt  @r-ctl  @t-sym  @u-sym   @h-ctl  @j-alt  @l-met   p   ret
-  lsft         z        x       c       v       b      ,       y      n       m       .     rsft
+  lsft         z        x       c       v       b      ,     @y-num      n       m       .     rsft
   lctl    lmet    lalt    @spcshift_r    ralt
 )
 
@@ -57,29 +59,19 @@
   lctl    lmet    lalt    @spcshift    ralt
 )
 
-(deflayer asert_extra2
-  grv      f1      f2      f3      f4       f5       f6     f7     f8      f9     f10     f11    f12    bspc
-  tab   @to_base   tab    home     up       end     pgup    0       7       8      9       =     bspc   \
-  esc      del     ins  @left_m  @down_a  @right_c  pgdn    /    @4-ctl  @5-alt  @6-met    -     ret
-  lsft     grv      ,      \        .        ;       [      1       2       3      ]      rsft
-  lctl    lmet    lalt    @spcshift    ralt
+(deflayer asert_num1
+  grv      f1     f2      f3     f4     f5     f6    f7    f8     f9     f10    f11    f12     bspc
+  tab      grv      /      7      8      9      0    ins    home   up     end   pgup    XX      \
+  esc      del    S-=      4      5      6      -    tab    left  down   right  pgdn    bspc
+  lsft     [       1       2      3      ]     grv    ,      \     .       ;    rsft
+  lctl    lmet    lalt    rsft    ralt
 )
 
 (deflayer asert_sym1
   grv      f1     f2      f3     f4     f5     f6    f7    f8     f9     f10    f11    f12     bspc
-  tab      XX      /      7      8      9      0    ins    home   up     end   pgup    XX      \
-  esc      del     =      4      5      6      -    tab    left  down   right  pgdn    bspc
-  lsft     [       1      2      3      ]     grv    ,      \     .       ;    rsft
+  tab     S-grv   S-/     S-7    S-8    S-9      0    ins    home   up     end   pgup    XX      \
+  esc      del     =      S-4    S-5    S-6      -    tab    left  down   right  pgdn    bspc
+  lsft     S-[    S-1     S-2    S-3    S-]     grv    ,      \     .       ;    rsft
   lctl    lmet    lalt    rsft    ralt
 )
-
-(deflayer asert_sym2
-  grv      f1     f2      f3     f4     f5     f6    f7    f8    f9     f10    f11    f12     bspc
-  tab      XX     ins    home    up     end   pgup    =     7     8      9      0     XX      \
-  esc      del    tab    left   down   right  pgdn    /     4     5      6      -     bspc
-  lsft     grv     ,      \       .      ;     [      1     2     3      ]    rsft
-  lctl    lmet    lalt    rsft    ralt
-)
-
-
 
