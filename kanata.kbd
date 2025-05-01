@@ -70,7 +70,7 @@
 (deflayer asert_sym1
   grv      f1     f2      f3     f4     f5     f6     f7    f8     f9     f10    f11    f12     bspc
   tab     S-grv   S-/     S-7    S-8    S-9    S-0    ins    home   up     end   pgup    XX      \
-  esc      del     =      S-4    S-5    S-6     _     tab    left  down   right  pgdn    bspc
+  esc      del     =      S-4    S-5    S-6    S--    tab    left  down   right  pgdn    bspc
   lsft     S-[    S-1     S-2    S-3    S-]    grv     ,      \     .       ;    rsft
   lctl    lmet    lalt    rsft    ralt
 )
