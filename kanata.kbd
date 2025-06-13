@@ -10,26 +10,45 @@
   timeout-time 750
 )
 
+(defchords numsym 500
+  (u j) (layer-while-held asert_sym1)
+  (u  ) u
+  (y j) (layer-while-held asert_num1)
+  (y  ) y
+  (  j) @j-alt
+)
+
 (defalias
   num (layer-while-held asert_num1)
   sym (layer-while-held asert_sym1)
+
   to_extra (layer-switch asert_extra1)
   to_base (layer-switch asert_base)
+
   escctrl (multi f24 (tap-hold-release $tap-time $hold-time esc lctl))
   spcshift (multi f24 (tap-hold-release $tap-time $hold-time lsft spc))
   spcshift_r (multi f24 (tap-hold-release-timeout $tap-time $timeout-time spc lsft spc))
-  t-sym (multi f24 (tap-hold-release $quick-tap-time $hold-time t @sym))
   s-met (multi f24 (tap-hold-release $tap-time $long-hold-time s lmet))
+
   e-alt (multi f24 (tap-hold-release $quick-tap-time $hold-time e lalt))
   r-ctl (multi f24 (tap-hold-release $quick-tap-time $hold-time r lctl))
+
+;;  t-sym (multi f24 (tap-hold-release $quick-tap-time $hold-time t @sym))
+;;  y-num (multi f24 (tap-hold-release $quick-tap-time $hold-time y @num))
+;;  u-sym (multi f24 (tap-hold-release $quick-tap-time $hold-time u @sym))
+
+  _u (chord numsym u)
+  _y (chord numsym y)
+  _j (chord numsym j)
+
   h-ctl (multi f24 (tap-hold-release $quick-tap-time $hold-time h rctl))
   j-alt (multi f24 (tap-hold-release $quick-tap-time $hold-time j lalt))
   l-met (multi f24 (tap-hold-release $tap-time $long-hold-time l rmet))
-  u-sym (multi f24 (tap-hold-release $quick-tap-time $hold-time u @sym))
-  y-num (multi f24 (tap-hold-release $quick-tap-time $hold-time y @num))
+
   left_m  (multi f24 (tap-hold-release $tap-time $hold-time left  lctl))
   down_a  (multi f24 (tap-hold-release $tap-time $hold-time down  lalt))
   right_c (multi f24 (tap-hold-release $tap-time $hold-time right lmet))
+
   4-ctl (multi f24 (tap-hold-release $tap-time $hold-time 4 rctl))
   5-alt (multi f24 (tap-hold-release $tap-time $hold-time 5 lalt))
   6-met (multi f24 (tap-hold-release $tap-time $hold-time 6 rmet))
@@ -44,10 +63,10 @@
 )
 
 (deflayer asert_base
-  grv         =         1       2       3       4      5       -      6       7       8      9      0      bspc
-  tab      @to_extra    q       w       d       f      g       '      i       k       o      ;      bspc   \
-  @escctrl    esc       a    @s-met  @e-alt  @r-ctl  @t-sym  @u-sym   @h-ctl  @j-alt  @l-met   p   ret
-  lsft         z        x       c       v       b      ,     @y-num      n       m       .     rsft
+  grv         =         1       2       3       4      5     -       6       7       8      9      0      bspc
+  tab      @to_extra    q       w       d       f      g     '       i       k       o      ;      bspc   \
+  @escctrl    esc       a    @s-met  @e-alt  @r-ctl    t     @_u     @h-ctl  @_j   @l-met   p   ret
+  lsft         z        x       c       v       b      ,     @_y     n       m       .     rsft
   lctl    lmet    lalt    @spcshift_r    ralt
 )
 
