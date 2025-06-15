@@ -17,6 +17,9 @@
   (y n) (layer-while-held asert_num1)
   (y  ) y
   (  n) n
+  (e r) (layer-while-held asert_sym1)
+  (e  ) @e-alt
+  (  r) @r-ctl
 )
 
 (defalias
@@ -42,6 +45,9 @@
   _j (chord numsym j)
   _y (chord numsym y)
   _n (chord numsym n)
+  _e (chord numsym e)
+  _r (chord numsym r)
+
 
   h-ctl (multi f24 (tap-hold-release $quick-tap-time $hold-time h rctl))
   j-alt (multi f24 (tap-hold-release $quick-tap-time $hold-time j lalt))
@@ -67,7 +73,7 @@
 (deflayer asert_base
   grv         =         1       2       3       4      5     -       6       7       8      9      0      bspc
   tab      @to_extra    q       w       d       f      g     '       i       k       o      ;      bspc   \
-  @escctrl    esc       a    @s-met  @e-alt  @r-ctl    t     u      @_h     @_j    @l-met   p   ret
+  @escctrl    esc       a    @s-met    @_e     @_r     t     u      @_h     @_j    @l-met   p   ret
   lsft         z        x       c       v       b      ,    @_y     @_n      m       .     rsft
   lctl    lmet    lalt    @spcshift_r    ralt
 )
