@@ -17,9 +17,9 @@
   (y n) (layer-while-held asert_num1)
   (y  ) y
   (  n) n
-  (e r) (layer-while-held asert_sym1)
-  (e  ) @e-alt
-  (  r) @r-ctl
+  (c v) (layer-while-held asert_sym1)
+  (c  ) c
+  (  v) v
 )
 
 (defalias
@@ -37,16 +37,12 @@
   e-alt (multi f24 (tap-hold-release $quick-tap-time $hold-time e lalt))
   r-ctl (multi f24 (tap-hold-release $quick-tap-time $hold-time r lctl))
 
-;;  t-sym (multi f24 (tap-hold-release $quick-tap-time $hold-time t @sym))
-;;  y-num (multi f24 (tap-hold-release $quick-tap-time $hold-time y @num))
-;;  u-sym (multi f24 (tap-hold-release $quick-tap-time $hold-time u @sym))
-
   _h (chord numsym h)
   _j (chord numsym j)
   _y (chord numsym y)
   _n (chord numsym n)
-  _e (chord numsym e)
-  _r (chord numsym r)
+  _c (chord numsym c)
+  _v (chord numsym v)
 
 
   h-ctl (multi f24 (tap-hold-release $quick-tap-time $hold-time h rctl))
@@ -71,10 +67,10 @@
 )
 
 (deflayer asert_base
-  grv         =         1       2       3       4      5     -       6       7       8      9      0      bspc
-  tab      @to_extra    q       w       d       f      g     '       i       k       o      ;      bspc   \
-  @escctrl    esc       a    @s-met    @_e     @_r     t     u      @_h     @_j    @l-met   p   ret
-  lsft         z        x       c       v       b      ,    @_y     @_n      m       .     rsft
+  grv         =         1       2       3        4      5     -       6       7       8      9      0      bspc
+  tab      @to_extra    q       w       d        f      g     '       i       k       o      ;      bspc   \
+  @escctrl    esc       a    @s-met   @e-alt   @r-ctl   t     u      @_h     @_j    @l-met   p   ret
+  lsft         z        x      @_c     @_v       b      ,    @_y     @_n      m       .     rsft
   lctl    lmet    lalt    @spcshift_r    ralt
 )
 
