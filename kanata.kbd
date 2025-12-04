@@ -54,8 +54,11 @@
   right_c (multi f24 (tap-hold-release $tap-time $hold-time right lmet))
 
   4-ctl (multi f24 (tap-hold-release $tap-time $hold-time 4 rctl))
+  S4-ctl (multi f24 (tap-hold-release $tap-time $hold-time S-4 rctl))
   5-alt (multi f24 (tap-hold-release $tap-time $hold-time 5 lalt))
+  S5-alt (multi f24 (tap-hold-release $tap-time $hold-time S-5 lalt))
   6-met (multi f24 (tap-hold-release $tap-time $hold-time 6 rmet))
+  S6-met (multi f24 (tap-hold-release $tap-time $hold-time S-6 rmet))
 )
 
 (defsrc
@@ -83,18 +86,18 @@
 )
 
 (deflayer asert_num1
-  grv      f1     f2      f3     f4     f5     f6    f7    f8     f9     f10    f11    f12     bspc
-  tab      grv      /      7      8      9      0    ins    home   up     end   pgup    XX      \
-  esc      del    S-=      4      5      6      -    tab    left  down   right  pgdn    bspc
-  lsft     [       1       2      3      ]     grv    ,      \     .       ;    rsft
+  grv      f1     f2      f3     f4      f5      f6    f7     f8       f9       f10      f11     f12     bspc
+  tab      grv      /      7      8       9       0    ins    home     up       end      pgup    XX      \
+  esc      del    S-=   @4-ctl  @5-alt  @6-met    -    tab   @left_m  @down_a  @right_c  pgdn    bspc
+  lsft     [       1       2      3       ]      grv    ,      \       .         ;       rsft
   lctl    lmet    lalt    rsft    ralt
 )
 
 (deflayer asert_sym1
-  grv      f1     f2      f3     f4     f5     f6     f7    f8     f9     f10    f11    f12     bspc
-  tab     S-grv   S-/     S-7    S-8    S-9    S-0    ins    home   up     end   pgup    XX      \
-  esc      del     =      S-4    S-5    S-6    S--    tab    left  down   right  pgdn    bspc
-  lsft     S-[    S-1     S-2    S-3    S-]    grv     ,      \     .       ;    rsft
+  grv      f1     f2      f3     f4     f5     f6     f7     f8      f9       f10      f11    f12     bspc
+  tab     S-grv   S-/     S-7    S-8    S-9    S-0    ins    home    up       end      pgup    XX      \
+  esc      del     =      S-4    S-5    S-6    S--    tab  @left_m  @down_a  @right_c  pgdn    bspc
+  lsft     S-[    S-1     S-2    S-3    S-]    grv    S-,    S-\     S-.      S-;      rsft
   lctl    lmet    lalt    rsft    ralt
 )
 
